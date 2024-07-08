@@ -1,15 +1,42 @@
+import { useEffect, useState } from 'react'
 import './App.css'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import authService from "./appwrite/auth"
+import { useDispatch } from 'react-redux'
+import {login, logout} from "./store/authSlice"
 
 function App() {
 
+  const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch();
 
-  return (
-    <>
-      <h1>H-BLOG :A Mega Blog with Appwrite</h1>
-      <h3>This project is under development by Hemant Suthar</h3>
-      
-    </>
-  )
+  useEffect(()=>{
+    authService.getCurrentUser()
+    .then((userData)=>{
+      if(userData){
+        dispatch(login(userData))
+      }else{
+        dispatch(logout())
+      }
+    })
+    .catch((err)=>{
+      console.log("There was an ERROR in fetching the current user from appwrite. The ERROR :",err);
+    })
+    .finally(()=> setLoading(false))
+  },[])
+
+  return !loading ? (
+    <div className='min-h-screen flex flex-wrap content-between bg-stone-800'>
+      <div className='w-full block text-white'>
+        <Header/>
+        <main>
+         TODO: {/* <Outlet/> */}
+        </main>
+        <Footer/>
+      </div>
+    </div>
+  ) : null
 }
 
 export default App
