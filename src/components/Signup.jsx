@@ -18,12 +18,22 @@ function Signup() {
     const create = async (data) => {
         setError("")
         try {
+
+            console.log(data)
+
             const userData = await authService.createAccount(data)
 
+            console.log(userData)
+
             if (userData) {
-                const userData = await authService.getCurrentUser()
-                if (userData) dispatch(login(userData))
-                navigate("/")
+                console.log("Signup component is calling getCurrentUser");
+                const userData_ = await authService.getCurrentUser();
+
+                console.log(`the user data from getCurrentUser is : ${userData_}`);
+
+                if (userData_) dispatch(login(userData_));
+
+                navigate("/");
             }
 
         } catch (error) {
@@ -31,6 +41,8 @@ function Signup() {
         }
 
     }
+
+    console.log("Signup component reached")
 
   return (
     <div className="flex items-center justify-center">
@@ -40,14 +52,14 @@ function Signup() {
                         <Logo width="100%" />
                     </span>
                 </div>
-                <h2 className="text-center text-2xl font-bold leading-tight">Sign up to create account</h2>
-                <p className="mt-2 text-center text-base text-black/60">
+                <h2 className="text-center text-black text-2xl font-bold leading-tight">Sign up to create account</h2>
+                <p className="mt-2 text-center text-base text-black/60 mb-5">
                     Already have an account?&nbsp;
                     <Link
                         to="/login"
                         className="font-medium text-primary transition-all duration-200 hover:underline"
                     >
-                        Sign In
+                        Log In
                     </Link>
                 </p>
 

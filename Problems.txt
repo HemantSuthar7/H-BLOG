@@ -1,0 +1,19 @@
+1. Account created is not authorized via appwrite to perform actions such as logout or add post however he is able to login 
+ ######<<<<<<<<<THE ABOVE PROBLEM IS RESOLVED>>>>>>>>>>>>>>>>>>>>###########################
+
+
+
+2. While logging out , the $id is not passed and it is reading some different value , can be possible due to error in store
+ ########<<<<<<<<<THE ABOVE PROBLEM IS RESOLVED>>>>>>>>>>>>>>>>>>>>#########################
+
+
+
+
+3. TinyMce api key is passed as undefined from env file
+
+
+4. User is not able to add post 
+
+
+
+5. getCurrentUser is also giving an unauthorized request error  (the role of the user is treated as guest user)

@@ -9,6 +9,7 @@ function AllPosts() {
     const [posts, setPosts] = useState([]);
 
     useEffect( () => {
+        console.log("AllPosts is calling getPosts")
         appwriteService.getPosts()
         .then( (posts) => {
             if (posts) {

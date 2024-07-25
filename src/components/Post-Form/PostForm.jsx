@@ -21,12 +21,19 @@ function PostForm({post}) {
 
 
     const navigate = useNavigate();
-    const userData = useSelector( state => state.userData )
+    const userData = useSelector( (state) => {
+        state.auth.userData
+        console.log(state)
+ })
+
+    console.log(userData); // returning undefined
 
     const submit = async (data)=>{
 
+        console.log(data)
+
         if (post) {
-            const file = await data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
+            const file = await data.featuredImage[0] ? appwriteService.uploadFile(data.featuredImage[0]) : null
 
             if (file) {
                 appwriteService.deleteFile(post.featuredImage)
@@ -44,7 +51,7 @@ function PostForm({post}) {
         }
         else{
 
-            const file = await data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
+            const file = await data.featuredImage[0] ? appwriteService.uploadFile(data.featuredImage[0]) : null
 
             if (file) {
                 const fileId = file.$id
@@ -120,7 +127,7 @@ function PostForm({post}) {
                     type="file"
                     className="mb-4"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
-                    {...register("image", { required: !post })}
+                    {...register("featuredImage", { required: !post })}
                 />
                 {post && (
                     <div className="w-full mb-4">

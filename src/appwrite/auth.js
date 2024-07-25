@@ -15,8 +15,8 @@ export class AuthService {
     async createAccount({email, password, name}){
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
-            if (this.account) {
-                return this.login({email, password});
+            if (userAccount) {
+                return await this.login({email, password});
             } else {
                 return userAccount;
             }
@@ -36,6 +36,8 @@ export class AuthService {
 
     async getCurrentUser(){
         try {
+            console.log(this)
+            console.log("Appwrite auth service is running and trying to get an account")
             return await this.account.get();
         } catch (error) {
             console.log("Appwrite service :: getCurrentUser :: error", error);
@@ -45,13 +47,14 @@ export class AuthService {
 
     async logout(){
         try {
-            return await this.account.deleteSessions();
+            await this.account.deleteSessions();
         } catch (error) {
             console.log("Appwrite service :: LOGOUT :: error", error);
         }
     }
 }
 
-const authService = new AuthService();
+
+const authService = new AuthService(); // THIS IS CAUSING THE PROBLEM ~ my assumption
 
 export default authService;
