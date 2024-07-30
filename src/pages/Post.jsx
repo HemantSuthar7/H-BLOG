@@ -8,12 +8,17 @@ import { useSelector } from 'react-redux'
 
 function Post() {
 
-    const [post, setPost] = useState();
+    const [post, setPost] = useState(null);
     const navigate = useNavigate();
     const {slug} = useParams();
-    const userData = useSelector( (state) => state.auth.userData );
+    const userData = useSelector((state) => state.auth.userData);
+
+    console.log(userData)
+
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
+
+    console.log(isAuthor)
 
     useEffect( () => {
         if (slug) {
@@ -36,7 +41,6 @@ function Post() {
             };
         });
     };
-
 
   return post ? (
     <div className='py-8'>

@@ -21,19 +21,15 @@ function PostForm({post}) {
 
 
     const navigate = useNavigate();
-    const userData = useSelector( (state) => {
-        state.auth.userData
-        console.log(state)
- })
-
-    console.log(userData); // returning undefined
+    const userData = useSelector((state) => state.auth.userData);
 
     const submit = async (data)=>{
 
-        console.log(data)
 
         if (post) {
-            const file = await data.featuredImage[0] ? appwriteService.uploadFile(data.featuredImage[0]) : null
+
+            const file = data.featuredImage?.[0] ? await appwriteService.uploadFile(data.featuredImage[0]) : null;
+
 
             if (file) {
                 appwriteService.deleteFile(post.featuredImage)
@@ -51,15 +47,14 @@ function PostForm({post}) {
         }
         else{
 
-            const file = await data.featuredImage[0] ? appwriteService.uploadFile(data.featuredImage[0]) : null
+            const file = data.featuredImage?.[0] ? await appwriteService.uploadFile(data.featuredImage[0]) : null;
+
 
             if (file) {
-                const fileId = file.$id
-                data.featuredImage = fileId
-                const dbPost = await appwriteService.createPost({
-                    ...data, // may create a problem key names are not matching with expected arguements by createPost()
-                    userId: userData.$id
-                })
+                
+                data.featuredImage = file.$id;
+
+                const dbPost = await appwriteService.createPost({...data, userId: userData.$id})
 
                 if(dbPost){
                     navigate(`/post/${dbPost.$id}`)

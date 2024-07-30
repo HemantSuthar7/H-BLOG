@@ -26,14 +26,13 @@ function Signup() {
             console.log(userData)
 
             if (userData) {
-                console.log("Signup component is calling getCurrentUser");
                 const userData_ = await authService.getCurrentUser();
 
                 console.log(`the user data from getCurrentUser is : ${userData_}`);
 
                 if (userData_) dispatch(login(userData_));
 
-                navigate("/");
+                navigate("/")
             }
 
         } catch (error) {
@@ -41,8 +40,6 @@ function Signup() {
         }
 
     }
-
-    console.log("Signup component reached")
 
   return (
     <div className="flex items-center justify-center">

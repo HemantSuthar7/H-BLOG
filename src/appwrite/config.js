@@ -29,7 +29,8 @@ export class Service {
                     content,
                     featuredImage,
                     status,
-                    userId
+                    userId,
+                    slug
                 }
             )
         } catch (error) {
@@ -49,6 +50,7 @@ export class Service {
                     content,
                     featuredImage,
                     status,
+                    slug
                 }
             )
         } catch (error) {
