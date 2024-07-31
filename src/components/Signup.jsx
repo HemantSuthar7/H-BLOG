@@ -42,29 +42,29 @@ function Signup() {
     }
 
   return (
-    <div className="flex items-center justify-center mx-6">
-            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
-            <div className="mb-2 flex justify-center">
-                    <span className="inline-block w-full max-w-[100px]">
+    <div className="flex items-center justify-center mx-4 sm:mx-8 lg:mx-16">
+        <div className="w-full max-w-md bg-gray-100 rounded-xl p-6 border border-gray-300 sm:p-8 lg:p-10">
+            <div className="mb-4 flex justify-center">
+                    <span className="inline-block w-24 sm:w-32 lg:w-40">
                         <Logo width="100%" />
                     </span>
-                </div>
-                <h2 className="text-center text-black text-2xl font-bold leading-tight">Sign up to create account</h2>
-                <p className="mt-2 text-center text-base text-black/60 mb-5">
+            </div>
+            <h2 className="text-center text-black text-xl sm:text-2xl lg:text-3xl font-bold leading-tight">Sign up to create account
+            </h2>
+            <p className="mt-2 text-center text-sm sm:text-base text-black/60 mb-5">
                     Already have an account?&nbsp;
-                    <Link
-                        to="/login"
-                        className="font-medium text-primary transition-all duration-200 hover:underline"
-                    >
-                        Log In
-                    </Link>
-                </p>
+                <Link
+                    to="/login"
+                    className="font-medium text-primary transition-all duration-200 hover:underline"
+                >
+                    Log In
+                </Link>
+            </p>
 
-                {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+            {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
 
-                <form onSubmit={handleSubmit(create)}>
-                    <div className='space-y-5'>
-
+            <form onSubmit={handleSubmit(create)}>
+                <div className='space-y-4'>
 
                     <Input
                         label="Full Name : "
@@ -100,14 +100,16 @@ function Signup() {
 
                     />
 
-                    <Button type='submit' className='w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'>
-                        Create Account
+                    <Button 
+                    type='submit' 
+                    className='w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 sm:px-5 sm:py-3 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'
+                    >
+                    Create Account
                     </Button>
                     
-
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
+        </div>
 
     </div>
   )
