@@ -16,6 +16,10 @@ function Login() {
 
     const login = async (data)=>{
         setError("")
+
+        console.log("login is running")
+
+
         try {
             const session = await authService.login(data)
 
@@ -25,17 +29,19 @@ function Login() {
 
                 if (userData) dispatch(authLogin({ userData }));
 
-                navigate("/")
+                navigate("/all-posts")
             }
         } 
         catch (error) {
-            setError(error.message)
+            console.log(error)
+            setError(error)
         }
     }
 
 
+
   return (
-    <div className='flex items-center justify-center'>
+    <div className='flex items-center justify-center mx-6'>
         <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
             <div className='mb-2 flex justify-center'>
                 <span className="inline-block w-full max-w-[100px]">
@@ -59,6 +65,7 @@ function Login() {
                  {/* Email input */}
                 <Input 
                 label="Email : "
+                labelClassName="text-black"
                 type="email" 
                 placeholder='Enter your email'
                 {...register("email", {
@@ -73,6 +80,7 @@ function Login() {
                 {/* password input */}
                 <Input 
                 label="Password : "
+                labelClassName="text-black"
                 type="password" 
                 placeholder='Enter your password'
                 {...register("password",{
@@ -82,7 +90,7 @@ function Login() {
 
                 <Button
                 type='submit'
-                className='w-full'
+                className='w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'
                 >
                     Log in
                 </Button>

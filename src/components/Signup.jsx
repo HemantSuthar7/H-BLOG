@@ -42,7 +42,7 @@ function Signup() {
     }
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center mx-6">
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
             <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
@@ -68,6 +68,7 @@ function Signup() {
 
                     <Input
                         label="Full Name : "
+                        labelClassName="text-black"
                         placeholder="Enter your Full name"
                         {...register("name",{
                             required: true
@@ -76,6 +77,7 @@ function Signup() {
 
                     <Input
                         label="Email : "
+                        labelClassName="text-black"
                         placeholder="Enter your email"
                         type="email"
                         {...register("email",{
@@ -89,6 +91,7 @@ function Signup() {
 
                     <Input 
                         label="Password : "
+                        labelClassName="text-black"
                         placeholder="Enter your password"
                         type="password"
                         {...register("password",{
@@ -97,7 +100,7 @@ function Signup() {
 
                     />
 
-                    <Button type='submit' className='w-full'>
+                    <Button type='submit' className='w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'>
                         Create Account
                     </Button>
                     
