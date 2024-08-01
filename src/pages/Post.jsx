@@ -13,18 +13,18 @@ function Post() {
     const {slug} = useParams();
     const userData = useSelector((state) => state.auth.userData);
 
-    console.log(userData)
-
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
 
-    console.log(isAuthor)
 
     useEffect( () => {
         if (slug) {
             appwriteService.getPost(slug).then( (post) => {
-                if(post) setPost(post);
-                else navigate("/");
+                if(post && typeof post.content === 'string') setPost(post);
+                else {
+                    console.error('Invalid post structure:', post);
+                    navigate("/");
+                };
             } );
         }
         else{
@@ -70,7 +70,7 @@ function Post() {
                     <h1 className='text-xl sm:text-2xl lg:text-3xl font-bold'>{post.title}</h1>
                 </div>
                 <div className='browser-css text-base sm:text-lg lg:text-xl'>
-                    {parse(post.content)}
+                    {typeof post.content === 'string' ? parse(post.content) : 'Content is not available'}
                 </div>
 
         </Container>
