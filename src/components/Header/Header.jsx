@@ -116,7 +116,7 @@ function Header() {
   ];
 
   return (
-    <header className="py-3 px-4 shadow bg-neutral-800 border-b-2 border-neutral-700">
+    <header className="py-3 px-4 shadow bg-neutral-800 border-b-2 border-neutral-500">
       <Container>
         <nav className="flex items-center justify-between">
           <div className="mr-4">

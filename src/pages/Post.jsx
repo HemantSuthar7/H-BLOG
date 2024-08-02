@@ -42,9 +42,29 @@ function Post() {
         });
     };
 
+    const contentWithCenteredImages = post?.content
+    ? parse(post.content, {
+        replace: (domNode) => {
+          if (domNode.name === 'img') {
+            domNode.attribs.class = (domNode.attribs.class || '') + ' center-image';
+          }
+        },
+      })
+    : <p>No content available.</p>;
+
   return post ? (
     <div className='py-6 px-4 sm:px-6 lg:px-8'>
         <Container>
+        <style dangerouslySetInnerHTML={{ __html: `
+          .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            border-radius: 10px;
+          }
+        ` }} />
+
             <div className='relative w-full flex justify-center mb-4 border rounded-xl overflow-hidden'>
                 <img 
                 src={appwriteService.getFilePreview(post.featuredImage)} 
@@ -69,8 +89,8 @@ function Post() {
                 <div className='w-full mb-4'>
                     <h1 className='text-xl sm:text-2xl lg:text-3xl font-bold'>{post.title}</h1>
                 </div>
-                <div className='browser-css text-base sm:text-lg lg:text-xl'>
-                    {typeof post.content === 'string' ? parse(post.content) : 'Content is not available'}
+                <div className='browser-css text-base sm:text-lg lg:text-xl font-sans'>
+                    {contentWithCenteredImages}
                 </div>
 
         </Container>
