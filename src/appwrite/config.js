@@ -99,6 +99,19 @@ export class Service {
         }
     }
 
+    async getUserPosts({userId}){
+        try {
+            return await this.databases.listDocuments(
+                conf.appwriteDatabaseID,
+                conf.appwriteCollectionID,
+                [Query.equal("userId",userId)]
+            )
+        } catch (error) {
+            console.log("Appwrite service :: getUserPosts :: error", error);
+            return false
+        }
+    }
+
     async uploadFile(file){
         try {
             
