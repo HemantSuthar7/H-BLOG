@@ -23,7 +23,7 @@ function MyPosts() {
         } )
     }, [] )
 
-  return (
+  return posts && posts.length > 0 ? (
     <div className='py-4'>
         <Container>
             <div className='flex flex-wrap'>
@@ -32,6 +32,23 @@ function MyPosts() {
                         <PostCard {...post} />
                     </div>
                 ) ) }
+            </div>
+        </Container>
+    </div>
+  ) : (
+    <div className="w-full py-8 mt-4 text-center">
+        <Container>
+            <div className="flex flex-wrap">
+                <div className="p-2 w-full">
+                    <img src="\src\assets\Not-Found.png" alt="Blog with H-Blog" className='w-full max-w-[130px] sm:max-w-[130px] md:max-w-[130px] lg:max-w-[130px] xl:max-w-[200px] h-auto mx-auto mb-4 rounded-2xl' 
+                    />
+                    <h1 className="text-4xl font-bold text-red-700">
+                        Posts Not Found :
+                    </h1>
+                    <h1 className="text-2xl font-bold text-white hover:text-gray-500">
+                        You Currently don't have any posts ! add some posts to see your posts listed here.
+                    </h1>
+                </div>
             </div>
         </Container>
     </div>
