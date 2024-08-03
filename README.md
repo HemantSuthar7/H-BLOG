@@ -43,7 +43,7 @@
 
 
 
-### Appwrite - Backend as a service platform
+## Appwrite - Backend as a service platform
 
 Appwrite will be used in this project for mainly two purposes : 
  - **Authentication Service** like handling Account creation, login, logout, sessions, etc.
@@ -51,4 +51,11 @@ Appwrite will be used in this project for mainly two purposes :
  
 ***
  # If you want to use this project then : 
- #### Contact me at hemantsuthar9324@gmail.com regarding why you want to use this project and i will guide you on how to setup your appwrite configurations with project and also how to setup environment variables.You would also need the TinyMCE API key.
+
+ ##### Message me on my any of these profiles regarding why you want to use this project & then i will guide you on next steps as you will need your own Appwrite credentials as well as TinyMCE api key.
+
+
+
+<a href="https://www.linkedin.com/in/hemant-suthar-web7/"><img src="https://raw.githubusercontent.com/yushi1007/yushi1007/main/images/linkedin.svg" alt="Hemant Suthar | LinkedIn" width="30px"/></a>
+<a href="https://instagram.com/hemant___9437"><img src="https://raw.githubusercontent.com/yushi1007/yushi1007/main/images/instagram.svg" alt="Hemant Suthar | Instagram" width="30px"/></a>
+<a href="https://x.com/Hemant_S7"><img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Hemant Suthar | Twitter" width="30px"/></a>
