@@ -20,6 +20,3 @@
 
 
 5. when application loads getCurrentUser is  giving an unauthorized request error  (the role of the user is treated as guest user)
-
-6. If no data is provided in the login then no errors come up in the ui. they come in console. same goes for every input in the application. make sure every input element is handling and displaying error to user and not in console.
-
