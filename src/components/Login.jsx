@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login as authLogin } from "../store/authSlice";
-import { Logo, Input, Button } from "./index.js";
+import { Logo, Input, Button } from "./index.js"; // CORRECT THIS
 import { useDispatch } from 'react-redux';
-import authService from "../appwrite/auth.js";
 import { useForm } from 'react-hook-form';
 
 function Login() {
@@ -27,7 +26,7 @@ function Login() {
         navigate("/all-posts");
       }
     } catch (err) {
-      console.log(err); // Log the full error object for debugging
+      console.log(err); 
 
       // Check for specific error messages from Appwrite and set field errors accordingly
       if (err.message.includes("Invalid credentials")) {
@@ -41,7 +40,7 @@ function Login() {
         setErrorMessage("An unexpected error occurred. Please try again.");
       }
     }
-  };
+  
 
   return (
     <div className='flex items-center justify-center px-4 sm:px-8 lg:px-16'>
@@ -110,6 +109,6 @@ function Login() {
       </div>
     </div>
   )
-}
+}}
 
 export default Login;

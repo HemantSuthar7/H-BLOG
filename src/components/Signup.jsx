@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from "../store/authSlice";
-import { Logo, Input, Button } from "./index.js";
+import { Logo, Input, Button } from "./index.js";  
 import { useDispatch } from 'react-redux';
-import authService from "../appwrite/auth.js";
 import { useForm } from 'react-hook-form';
 
 function Signup() {
@@ -129,4 +128,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Signup
