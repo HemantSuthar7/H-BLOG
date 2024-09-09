@@ -45,7 +45,7 @@ function PostForm({ post }) {
         const dbPost = await appwriteService.updatePost(post.$id, updatedData);
         if (dbPost) navigate(`/post/${dbPost.$id}`);
       } else {
-        const newData = { ...data, featuredImage: fileId, userId: userData.$id };
+        const newData = { ...data, featuredImage: fileId, userId: userData?.$id };
         const dbPost = await appwriteService.createPost(newData);
         if (dbPost) navigate(`/post/${dbPost.$id}`);
       }
