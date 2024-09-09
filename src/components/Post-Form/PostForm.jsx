@@ -18,6 +18,7 @@ function PostForm({ post }) {
   const [contentError, setContentError] = useState(false);
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
+  console.log("The userdata that we got in the postForm is : ", userData)
 
   const submit = async (data) => {
     if (!data.content || data.content.trim() === "") {
@@ -39,7 +40,7 @@ function PostForm({ post }) {
           ...data,
           featuredImage: fileId || post.featuredImage,
         };
-        if (fileId) appwriteService.deleteFile(post.featuredImage);
+        if (fileId) await appwriteService.deleteFile(post.featuredImage);
 
         const dbPost = await appwriteService.updatePost(post.$id, updatedData);
         if (dbPost) navigate(`/post/${dbPost.$id}`);
