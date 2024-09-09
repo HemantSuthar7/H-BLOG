@@ -23,9 +23,7 @@ function Signup() {
       console.log(userData);
 
       if (userData) {
-        const userData_ = await authService.getCurrentUser();
-        console.log(`the user data from getCurrentUser is : ${userData_}`);
-        if (userData_) dispatch(login({ userData_ }));
+        dispatch(login({ userData }));
         navigate("/all-posts");
       }
 
