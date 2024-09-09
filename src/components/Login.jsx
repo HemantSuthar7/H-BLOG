@@ -22,6 +22,7 @@ function Login() {
 
       if (session) {
         const userData = await authService.getCurrentUser();
+        console.log("The userData which the Login will dispatch to store is : ", userData)
         if (userData) dispatch(authLogin({ userData }));
 
         navigate("/all-posts");
