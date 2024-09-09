@@ -40,7 +40,7 @@ function MyPosts() {
         <Container>
             <div className="flex flex-wrap">
                 <div className="p-2 w-full">
-                    <img src="\src\assets\Not-Found.png" alt="Blog with H-Blog" className='w-full max-w-[130px] sm:max-w-[130px] md:max-w-[130px] lg:max-w-[130px] xl:max-w-[200px] h-auto mx-auto mb-4 rounded-2xl' 
+                    <img src="\public\assets\Not-Found.png" alt="Blog with H-Blog" className='w-full max-w-[130px] sm:max-w-[130px] md:max-w-[130px] lg:max-w-[130px] xl:max-w-[200px] h-auto mx-auto mb-4 rounded-2xl' 
                     />
                     <h1 className="text-4xl font-bold text-red-700">
                         Posts Not Found :
