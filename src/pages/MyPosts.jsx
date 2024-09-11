@@ -9,6 +9,8 @@ function MyPosts() {
     const [posts, setPosts] = useState([]);
     const userData = useSelector((state) => state.auth.userData);
 
+    console.log("the userData from myPosts is : ", userData)
+
     useEffect( () => {
         const userId = userData.$id
         appwriteService.getUserPosts({userId: String(userId)})
