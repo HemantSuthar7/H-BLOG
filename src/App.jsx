@@ -27,7 +27,7 @@ function App() {
   },[])
 
   return !loading ? (
-    <div className="min-h-screen flex flex-col bg-zinc-900 overflow-y-scroll">
+    <div className="min-h-screen flex flex-col bg-zinc-900">
       <div className='w-full block text-white'>
         <Header/>
         <main className="flex-grow">
